@@ -28,14 +28,33 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read.
 
 1. Briefly compare and contrast `.forEach` & `.map` (2-3 sentences max)
+.forEach iterates through EVERY item in an array without stopping, you can use return but you don't have too, DOES NOT RETURN NEW ARRAY
+.map returns a new array, but does not change the original array. Using a return is REQUIRED ALWAYS
 
 2. Explain the difference between a callback and a higher order function.
+high order functions receive and callback functions are passed in,
+higher oder functions receive parameters and callbacks receive arguments!
 
 3. What is closure?
+Closures are used for reusability, they are enclosed functions that look to their surroundings to get context (lexical)! Each new function requires its own closure with in the bundles of functions.
+
 
 4. Describe the four rules of the 'this' keyword.
+    1. Global/Window Binding - this is not defined, computer thinks 'this' will return everything in the window
+
+    2. Implicit Binding - 80% use cases. Most common rule, when function is invoked. 'this' will look to left of dot. Only applies obj with methods.
+    
+    3. New Binding- using the 'new' keyword constructs a new obj and 'this' points to the new obj created to it. You have to pass arguments 1 by 1.
+
+    4. Explicit Binding 
+    (.call(immediately calls function, passes arguments 1 by 1) , 
+
+    .apply(pass arguments as an array)-- not used in unit 1 , 
+
+    .bind(pass in arguments 1 by 1, but does not immediately invoke function, returns brand new function that can be invoked later.))
 
 5. Why do we need super() in an extended class?
+super () refers to the parent class that is being referenced. It will call the constructor of the parent class and to gain access the parent's properties and methods. It's a lot more  time effective than having to .call and .apply.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
