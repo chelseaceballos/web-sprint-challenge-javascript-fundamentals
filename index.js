@@ -1,4 +1,5 @@
 //🚀🚀🚀  Topic #1 Closures 🚀🚀🚀//
+
 /* 🚀🚀🚀🤓 Task 1: 🤓🚀🚀🚀 
 Study the code below and explain in your own words why nested function can access the variable internal. */
 
@@ -64,7 +65,7 @@ const zooAnimals = [
  function animalNames(element){ //FAILED
    const displayNames = []; // created new array of displayNames = []
   const mappedNameSpecies = zooAnimals.map((animal_name) => {
-    return {'name': animal_name.animal_name, 'scientific': scientific_name.animal_name};
+    return {'name': animal_name, 'scientific': scientific_name};
   });
  }
    
@@ -100,7 +101,7 @@ const zooAnimals = [
    
     
   }
-  console.log(lowPopulationAnimals);
+  // console.log(lowPopulationAnimals);
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁 
   The zoo needs to know their total animal population across the United States. 
