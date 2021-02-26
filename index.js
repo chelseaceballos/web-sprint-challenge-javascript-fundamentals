@@ -54,19 +54,24 @@ const zooAnimals = [
   
   /* 🦁🦁🦁 Request 1: .forEach() 🦁🦁🦁
   The zoos want to display both the scientific name and the animal name in front of the habitats. 
-  Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. 
-  displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
-  */
 
-  function animalNames(item){
-    zooAnimals.forEach((item) => {
-      displayNames.push({
-        'Name': item.animal_name,
-        'scientific': item.scientific_name
-      });
-    });
-  }
-  // const displayNames = [];
+  Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. --> .MAP?
+
+  displayNames= [] --> empty array will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
+  */
+ 
+ 
+ function animalNames(element){ //FAILED
+   const displayNames = []; // created new array of displayNames = []
+  const mappedNameSpecies = zooAnimals.map((animal_name) => {
+    return {'name': animal_name.animal_name, 'scientific': scientific_name.animal_name};
+  });
+ }
+   
+ 
+ 
+    
+  
   //   console.log(displayNames);
   
 
@@ -76,7 +81,7 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
+  function lowerCaseNames(/*add code here*/){ //FAILED
       zooAnimals.map(function(item) {
       return item.animal_name.toLocaleLowerCase();
     })
@@ -90,24 +95,24 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    // const lowPopulationAnimals = zooAnimals.filter(item => item.population < 5);
-    // console.log(lowPopulationAnimals);
+  function lowPopulationAnimals(/*Your Code Here*/){ //FAILED
+    const filterLargeStates = zooAnimals.filter((population) => item.population < 5);
+   
+    
   }
-  
+  console.log(lowPopulationAnimals);
 
-  /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
+  /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁 
   The zoo needs to know their total animal population across the United States. 
   Using USApop find the total population from the zoos array using the .reduce() method. 
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(accum, item){ // FAILED
-  // zooAnimals.reduce(function(accum, item) {
-  //     return accum + item.population;
-  //   }, 0)
-  //   console.log(populationTotal);
-  }
+  function USApop(cb,total){ // FAILED
+  const reducePop = zooAnimals.reduce((total, population) => {
+    return total += population.population;
+  }, 0);
+}
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -205,8 +210,8 @@ function CuboidMaker(attrs){
 // 🐴🐴🐴 Test your volume and surfaceArea methods by un commenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
 
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
+console.log(cuboid.volume()); // 100
+console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
@@ -235,7 +240,7 @@ surfaceArea() {
 
 
 
-//🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
+//🦄🦄🦄 Test your volume and surfaceArea methods by un commenting the logs below: 🦄🦄🦄
 
 // console.log(cuboidTwo.volume()); // 100
 // console.log(cuboidTwo.surfaceArea()); // 130
