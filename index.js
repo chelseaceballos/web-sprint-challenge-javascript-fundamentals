@@ -28,11 +28,10 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(a,b) {
+//   return a + b;
   }
- 
+//  console.log(summation(2,3,add));
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -56,9 +55,16 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(item){
+  //   zooAnimals.forEach((item) => {
+  //     displayNames.push({
+  //       'Name': item.animal_name,
+  //       'scientific': item.scientific_name
+  //     });
+  //   });
   }
+  // const displayNames = [];
+  //   console.log(displayNames);
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -68,8 +74,12 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  //   const lowCaseAnimalNames = zooAnimals.map(function(item) {
+  //     return item.animal_name.toLocaleLowerCase();
+  //   })
   }
+  //   console.log(lowCaseAnimalNames);
+  
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -78,7 +88,8 @@ const zooAnimals = [
   */
 
   function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+    // const lowPopulationAnimals = zooAnimals.filter(item => item.population < 5);
+    // console.log(lowPopulationAnimals);
   }
   
 
@@ -88,8 +99,11 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(accum, item){ // FAILED
+  // zooAnimals.reduce(function(accum, item) {
+  //     return accum + item.population;
+  //   }, 0)
+  //   console.log(populationTotal);
   }
   
   
@@ -101,28 +115,30 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
-  }
- 
+ function consume (a, b, cb) {
+  return cb(a, b);
+}
+
+
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-function add(/*Your Code Here */){
-    /*Your Code Here*/
+function add(a,b){
+  return a + b;
   }
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
   
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
+function multiply(a,b){
+  return a * b;
   }
 
  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
+function greeting(firstName, lastName){
+  return `Hello ${firstName} ${lastName}, nice to meet you!`;
+ 
   }
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
@@ -139,29 +155,43 @@ function greeting(/*Your Code Here */){
 
 
 // 🐴🐴🐴 Topic 3: Prototypes 🐴🐴🐴 //
-//🐴🐴🐴 Task: You are to build a cuboid maker that can return values for a cuboid's volume or surface area. Cuboids are similar to cubes but do not have even sides. Follow the steps in order to accomplish this challenge. 🐴🐴🐴
+
+//🐴🐴🐴 Task: You are to build a cuboid maker that can return values for a cuboid' s volume or surface area. Cuboids are similar to cubes but do not have even sides. Follow the steps in order to accomplish this challenge. 🐴🐴🐴
+
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker(attrs){ // why is this not workinggg......
+    this.length =attrs.length;
+    this.width = attrs.width;
+    this.height = attrs.height;
 }
+
+// let cuboid = new CuboidMaker(4, 5, 5);
+
+
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
-  Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
+  Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid' s length, width, and height
   Formula for cuboid volume: length * width * height   */
-
+  CuboidMaker.prototype.volume = function() {
+    let cubeVolume = this.length * this.width * this.height;
+    return cubeVolume; 
+  }
 
 
 
 
 /* 🐴🐴🐴 Step 3: Surface Area Method 🐴🐴🐴
-  Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
+  Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid' s length, width, and height. 
   Formula for cuboid surface area of a cube: 
-  2 * (length * width + length * height + width * height)  */
+  // 2 * (length * width + length * height + width * height)  */
 
-
+  CuboidMaker.prototype.surfaceArea = function() {
+    let cubeSurfArea = 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+    return cubeSurfArea;
+  }
 
 
 
@@ -170,23 +200,45 @@ function CuboidMaker(/*Your Code Here */){
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
 
+  const cuboid = new CuboidMaker(4, 5, 5);
 
 
 
-// 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
+// 🐴🐴🐴 Test your volume and surfaceArea methods by un commenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
+
 // console.log(cuboid.volume()); // 100
 // console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
-class CuboidMakerTwo{
 
+class CuboidMakerTwo{
+  constructor(attrs) {
+    this.length = attrs.length;
+    this.width = attrs.width;
+    this.height = attrs.height;
 }
+volume() {
+    return this.length * this.width * this.height;
+};
+surfaceArea() {
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+}
+}
+
+// const cuboid = new CuboidTwo({
+// length:4,
+// width:5,
+// height:5
+// });
+
+
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
+
 // console.log(cuboidTwo.volume()); // 100
 // console.log(cuboidTwo.surfaceArea()); // 130
 
